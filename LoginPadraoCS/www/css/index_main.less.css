@@ -667,3 +667,6 @@ label:empty {
     width: 100%;
   }
 }
+.vertical-col > .label {
+  display: block;
+}
