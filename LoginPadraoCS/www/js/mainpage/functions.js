@@ -20,10 +20,13 @@ function loginMainPage(json){
     
     if (json.result==true) {
         $("#txtSenhaMainPage").val("");
-        
         activate_page("#activitymain");        
     } else {
-        navigator.notification.alert("Usuário ou senha incorreto(s).");
+        if(json.msg != ""){
+            navigator.notification.alert(json.msg);
+        }else{
+            navigator.notification.alert("Usuário ou senha incorreto(s).");
+        }
     }
     
 }

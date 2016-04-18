@@ -35,6 +35,45 @@
                 @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
                 @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
                 /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+            
+            
+            .loader {
+                width: 50px;
+                height: 50px;
+                background-image: url("interface/loader.png");
+                
+                -webkit-animation: play .8s steps(19) infinite;
+                   -moz-animation: play .8s steps(19) infinite;
+                    -ms-animation: play .8s steps(19) infinite;
+                     -o-animation: play .8s steps(19) infinite;
+                        animation: play .8s steps(19) infinite;
+                
+            }
+            
+            @-webkit-keyframes play {
+               from { background-position: 0px 0px; }
+                 to { background-position: 0 -950px; }
+            }
+
+            @-moz-keyframes play {
+               from { background-position: 0px 0px; }
+                 to { background-position: 0 -950px; }
+            }
+
+            @-ms-keyframes play {
+              from { background-position: 0px 0px; }
+                 to { background-position: 0 -950px; }
+            }
+
+            @-o-keyframes play {
+               from { background-position: 0px 0px; }
+                 to { background-position: 0 -950px; }
+            }
+
+            @keyframes play {
+               from { background-position: 0px 0px; }
+                 to { background-position: 0 -950px; }
+            }
         </style>
 
         <link rel="stylesheet" href="css/app.css">
@@ -72,7 +111,6 @@
         <script type="application/javascript" src="js/novousuario/functions.js"></script>
         <script type="application/javascript" src="js/dati.js"></script>
         <script type="application/javascript" src="js/mainpage/functions.js"></script>
-
         <script>
             // Iniciar banco de dados local (DatiJS)
             console.log("dati.initialize()");
@@ -89,13 +127,18 @@
         <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
         <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
         <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-        <script type="application/javascript" src="camera/cordova-cam.js"></script>
     </head>
 
     <body>
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        
+        
+        <div id="loader" class="hidden" style="width:100%;height:100%;background-color:rgba(0,0,0,.8);z-index:995;position:absolute;">
+            <div class="loader" style="z-index:999;position:absolute;top:45%;left:0;right:0;margin-left:auto;margin-right:auto;"></div>
+        </div>
+
         <div class="upage mainpageStyleBG" id="mainpage">
             <div class="upage-outer">
                 <div class="uib-header container-group inner-element uib_w_11" data-uib="layout/header" data-ver="0">

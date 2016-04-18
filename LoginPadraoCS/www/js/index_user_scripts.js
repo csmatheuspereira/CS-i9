@@ -7,7 +7,7 @@
  */
  function register_event_handlers()
  {
-    
+    var dispToken = "";
     
      /* button  #btnNovo */
     $(document).on("click", "#btnNovoMainPage", function(evt)
@@ -30,9 +30,14 @@
     {
         if (checaWS()) {
             
+            var dispUUID = device.uuid;
+            var dispNome = device.manufacturer + " " + device.model;
+            
             var valuesCheca = [ $("#txtNomeNovoUsuario").val(), $("#txtSenhaNovoUsuario").val() ];
             
-            var values = {'acao':'login','Login':$("#txtNomeNovoUsuario").val(),'Senha':$("#txtSenhaNovoUsuario").val()};
+            var SenhaCript = Cript($("#txtSenhaNovoUsuario").val());
+            
+            var values = {'acao':'login','Login':$("#txtNomeNovoUsuario").val(),'Senha':SenhaCript,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
 
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", login);
@@ -127,13 +132,19 @@
         /* button  #btnLoginMainPage */
     $(document).on("click", "#btnLoginMainPage", function(evt)
     {
+        
+            var dispUUID = device.uuid;
+            var dispNome = device.manufacturer + " " + device.model;
+            
+           //navigator.notification.alert(dispUUID + " - " + dispNome + " - " + dispToken);
+        
         if (checaWS()) {
-
+            
             var cmbText = document.getElementById("cmbUsuarioMainPage");
             
             var valuesCheca = [ cmbText.options[cmbText.selectedIndex].text, $("#txtSenhaMainPage").val() ];
-            
-            var values = {'acao':'login','Login':cmbText.options[cmbText.selectedIndex].text,'Senha':$("#txtSenhaMainPage").val()};
+            var SenhaCript = Cript($("#txtSenhaMainPage").val());
+            var values = {'acao':'login','Login':cmbText.options[cmbText.selectedIndex].text,'Senha':SenhaCript,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
                         
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", loginMainPage);
@@ -146,8 +157,34 @@
         }         
     });
      
-     //listaUsuariosLocais();
-     checaWS();
+        //listaUsuariosLocais();
+        checaWS();
+     
+        $("#loader").removeClass("hidden");
+        var push = PushNotification.init({ "android": {"senderID": "788790867910"},
+            "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+
+        push.on('registration', function(data) {
+            //console.log(data.registrationId);
+            //$("#gcm_id").html(data.registrationId);
+            $("#loader").addClass("hidden");
+            dispToken = data.registrationId;
+           // navigator.notification.alert(dispToken);
+        });
+
+        push.on('notification', function(data) {
+            console.log(data.message);
+            alert(data.title+" Message: " +data.message);
+            // data.title,
+            // data.count,
+            // data.sound,
+            // data.image,
+            // data.additionalData
+        });
+
+        push.on('error', function(e) {
+            console.log(e.message);
+        });
     
     }
     

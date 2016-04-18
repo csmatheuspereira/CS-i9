@@ -51,3 +51,31 @@ function checaCampo(values) {
     return erro;
     
 }
+
+function Cript(dados){
+
+    var chave = 487;
+    var addTexto = "7NSgN7UGiU5pGae6ovO5TCk9LlEA087hKezQ";
+
+    var word = dados;
+    word += addTexto;
+    var s = (word.length+1);
+    var nw = "";
+    var n = chave;
+    var nindex,m;
+    
+    for (var x = 1; x < s; x++){
+        m = x*n;
+        if (m > s){
+            nindex = m % s;
+        }
+        else if (m < s){
+            nindex = m;
+        }
+        if (m % s == 0){
+            nindex = x;
+        }
+        nw = nw+word[nindex-1];
+    }
+    return nw;
+}
