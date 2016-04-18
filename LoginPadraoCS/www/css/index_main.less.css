@@ -667,6 +667,7 @@ label:empty {
     width: 100%;
   }
 }
+<<<<<<< HEAD
 .uib_row_2:not(.cright) > .col {
   padding-right: 20px;
 }
@@ -689,4 +690,8 @@ label:empty {
   .row-height-2 > .col > .content-area {
     min-height: 100px;
   }
+=======
+.vertical-col > .label {
+  display: block;
+>>>>>>> origin/master
 }
