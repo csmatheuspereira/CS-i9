@@ -23,15 +23,18 @@ function webService(values, status, callback){
                 callback(json);
             },
             beforeSend: function() {
-                $(status).html("Carregando...");
+                $("#loader").removeClass("hidden");
+                
             }
         })
         .done(function() {
             $(status).html(" ");
+            $("#loader").addClass("hidden");
         })
         .fail(function(jqXHR, textStatus) {
             //myAppProcessing.hideProcessing();
             alert( "Request failed: " + textStatus );
+            $("#loader").addClass("hidden");
         });
         //$("#Display").html("Lista de filmes");
 }

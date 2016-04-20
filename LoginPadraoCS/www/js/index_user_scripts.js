@@ -143,7 +143,9 @@
             var cmbText = document.getElementById("cmbUsuarioMainPage");
             
             var valuesCheca = [ cmbText.options[cmbText.selectedIndex].text, $("#txtSenhaMainPage").val() ];
+            
             var SenhaCript = Cript($("#txtSenhaMainPage").val());
+            
             var values = {'acao':'login','Login':cmbText.options[cmbText.selectedIndex].text,'Senha':SenhaCript,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
                         
             if(!checaCampo(valuesCheca)){
@@ -160,31 +162,34 @@
         //listaUsuariosLocais();
         checaWS();
      
-        $("#loader").removeClass("hidden");
-        var push = PushNotification.init({ "android": {"senderID": "788790867910"},
-            "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+        if (device.platform == "android") { // Adicionar iOS e WP
 
-        push.on('registration', function(data) {
-            //console.log(data.registrationId);
-            //$("#gcm_id").html(data.registrationId);
-            $("#loader").addClass("hidden");
-            dispToken = data.registrationId;
-           // navigator.notification.alert(dispToken);
-        });
+            $("#loader").removeClass("hidden");
+            var push = PushNotification.init({ "android": {"senderID": "788790867910"},
+                "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
-        push.on('notification', function(data) {
-            console.log(data.message);
-            alert(data.title+" Message: " +data.message);
-            // data.title,
-            // data.count,
-            // data.sound,
-            // data.image,
-            // data.additionalData
-        });
+            push.on('registration', function(data) {
+                //console.log(data.registrationId);
+                //$("#gcm_id").html(data.registrationId);
+                $("#loader").addClass("hidden");
+                dispToken = data.registrationId;
+               // navigator.notification.alert(dispToken);
+            });
 
-        push.on('error', function(e) {
-            console.log(e.message);
-        });
+            push.on('notification', function(data) {
+                console.log(data.message);
+                alert(data.title+" Message: " +data.message);
+                // data.title,
+                // data.count,
+                // data.sound,
+                // data.image,
+                // data.additionalData
+            });
+
+            push.on('error', function(e) {
+                console.log(e.message);
+            });
+        }
     
     }
     
