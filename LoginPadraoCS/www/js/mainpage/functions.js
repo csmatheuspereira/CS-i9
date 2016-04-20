@@ -22,10 +22,10 @@ function loginMainPage(json){
         $("#txtSenhaMainPage").val("");
         activate_page("#activitymain");        
     } else {
-        if(json.msg != "" || json.msg != null || json.msg != undefined){
-            navigator.notification.alert("Usuário ou senha incorreto(s).");        
+        if(json.msg != ""){
+            navigator.notification.alert(json.msg);
         }else{
-            navigator.notification.alert(json.msg);            
+            navigator.notification.alert("Usuário ou senha incorreto(s).");
         }
     }
     

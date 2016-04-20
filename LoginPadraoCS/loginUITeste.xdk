@@ -6,8 +6,12 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "creationDate": 1460057646367,
-      "lastModifiedDate": 1461088978749
+<<<<<<< HEAD
+      "lastModifiedDate": 1460750280232,
+=======
+      "lastModifiedDate": 1460663982853,
+>>>>>>> origin/master
+      "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
     "sourceDirectory": "www",
@@ -141,8 +145,8 @@
           "Orientation": "portrait"
         },
         "isActive_": true,
-        "appName_": "CS Login",
-        "appID_": "com.compusoft.loginUI",
+        "appName_": "CompuSoft App",
+        "appID_": "xdk.intel.blank.ad.template.crosswalk",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -217,13 +221,13 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "B6yFPyCMJUazEuEnCtNThw2",
+        "certificateId_": "",
         "cordovaCLIVersion_": "5.4.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.0.3",
-        "appAuthor_": "Compusoftware",
-        "appDescription_": "CS Login",
-        "appVersionCode_": "2"
+        "appVersion_": "0.0.1",
+        "appAuthor_": "CompuSoft",
+        "appDescription_": "CompuSoft App",
+        "appVersionCode_": "1"
       },
       "iOS": {
         "platform_": "ios",
