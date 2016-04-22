@@ -2,8 +2,10 @@ var urlWS = "";
 var idUsuario = "";
 var login = "";
 var senha = "";
+var inativo;
 
 function checaWS(){
+    alert(this.inativo);
     if (localStorage.getItem("urlWS") != "") {
         urlWS = localStorage.getItem("urlWS");
         return true;
@@ -83,3 +85,24 @@ function Cript(dados){
     }
     return nw;
 }
+
+function pegaTempo(){
+    var d = new Date();
+    var ms = d.getTime()/60000;
+    return ms;
+}
+
+function setInatividade(){
+    localStorage.setItem('tempoInativo', pegaTempo());
+}
+
+function getInatividade(){
+    setInatividade();
+    return localStorage.getItem('tempoInativo');
+}
+
+function Inatividade(){  
+    setInterval(function(){ alert("tempo passou " + getInatividade());}, eval(getInatividade) + 3000);
+}
+
+

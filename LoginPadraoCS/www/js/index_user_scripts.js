@@ -28,7 +28,7 @@
         /* button  #btnLoginNovoUsuario */
     $(document).on("click", "#btnLoginNovoUsuario", function(evt)
     {
-        if (checaWS()) {
+        if (checaWS()) {            
             
             var dispUUID = device.uuid;
             var dispNome = device.manufacturer + " " + device.model;
