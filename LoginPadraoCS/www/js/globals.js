@@ -1,4 +1,7 @@
 var urlWS = "";
+var idUsuario = "";
+var login = "";
+var senha = "";
 
 function checaWS(){
     if (localStorage.getItem("urlWS") != "") {
@@ -23,14 +26,15 @@ function webService(values, status, callback){
                 callback(json);
             },
             beforeSend: function() {
-                $(status).html("Carregando...");
+                $("#loader").removeClass("hidden");
             }
         })
         .done(function() {
-            $(status).html(" ");
+            $("#loader").addClass("hidden");
         })
         .fail(function(jqXHR, textStatus) {
             //myAppProcessing.hideProcessing();
+            $("#loader").addClass("hidden");
             alert( "Request failed: " + textStatus );
         });
         //$("#Display").html("Lista de filmes");

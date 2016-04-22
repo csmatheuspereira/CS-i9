@@ -35,9 +35,10 @@
             
             var valuesCheca = [ $("#txtNomeNovoUsuario").val(), $("#txtSenhaNovoUsuario").val() ];
             
-            var SenhaCript = Cript($("#txtSenhaNovoUsuario").val());
+            login = $("#txtNomeNovoUsuario").val();
+            senha = Cript($("#txtSenhaNovoUsuario").val());
             
-            var values = {'acao':'login','Login':$("#txtNomeNovoUsuario").val(),'Senha':SenhaCript,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
+            var values = {'acao':'login','Login':login,'Senha':senha,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
 
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", login);
@@ -122,12 +123,7 @@
      } ;
     
     
-    $(document).on("click", "#btnLogoutActivityMain", function(evt)
-    {
-         /*global activate_page */
-        activate_page("#mainpage");
-        listaUsuariosLocais();
-    });
+    
     
         /* button  #btnLoginMainPage */
     $(document).on("click", "#btnLoginMainPage", function(evt)
@@ -143,8 +139,11 @@
             var cmbText = document.getElementById("cmbUsuarioMainPage");
             
             var valuesCheca = [ cmbText.options[cmbText.selectedIndex].text, $("#txtSenhaMainPage").val() ];
-            var SenhaCript = Cript($("#txtSenhaMainPage").val());
-            var values = {'acao':'login','Login':cmbText.options[cmbText.selectedIndex].text,'Senha':SenhaCript,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
+            
+            login = cmbText.options[cmbText.selectedIndex].text;
+            senha = Cript($("#txtSenhaMainPage").val());
+            
+            var values = {'acao':'login','Login':login,'Senha':senha,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
                         
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", loginMainPage);
@@ -159,7 +158,7 @@
      
         //listaUsuariosLocais();
         checaWS();
-     
+     if(device.platform == "android"){
         $("#loader").removeClass("hidden");
         var push = PushNotification.init({ "android": {"senderID": "788790867910"},
             "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
@@ -185,6 +184,23 @@
         push.on('error', function(e) {
             console.log(e.message);
         });
+     }
+    
+        /* button  #btnLogoutActivityMain */
+    
+    
+        /* button  #btnLogoutActivityMain */
+    $(document).on("click", "#btnLogoutActivityMain", function(evt)
+    {
+        if (checaWS()) {
+            
+            var values = {'acao':'logout','Login':login,'Senha':senha,'dispUUID':device.uuid};  
+            webService(values, "#retorno", logout);
+        } else {
+            navigator.notification.alert("Defina a URL de serviço!", "Atenção");
+            activate_page("#configuracoes");
+        }     
+    });
     
     }
     

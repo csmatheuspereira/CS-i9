@@ -34,6 +34,13 @@ function login(json){
                 }
         }                            
         $("#txtSenhaNovoUsuario").val("");
+        
+        idUsuario = json.ID;
+        
+        if(json.SENHACRIPTO != "gambi"){
+            senha = json.SENHACRIPTO;
+        }
+        
         activate_page("#activitymain");
         
     } else {

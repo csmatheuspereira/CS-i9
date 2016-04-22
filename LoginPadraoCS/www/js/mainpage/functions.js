@@ -20,6 +20,13 @@ function loginMainPage(json){
     
     if (json.result==true) {
         $("#txtSenhaMainPage").val("");
+        
+        idUsuario = json.ID;
+        
+        if(json.SENHACRIPTO != "gambi"){
+            senha = json.SENHACRIPTO;
+        }
+        
         activate_page("#activitymain");        
     } else {
         if(json.msg != ""){
@@ -36,4 +43,12 @@ $(document).on("change", "#cmbUsuarioMainPage", function() {
     $("#txtSenhaMainPage").val("");
     
 });
+
+function logout(json){
+    if (json.result == true) {
+        activate_page("#mainpage");
+    }else{
+        navigator.notification.alert("Falha ao desconectá-lo.");
+    };
+}
     
