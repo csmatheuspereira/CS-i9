@@ -28,10 +28,14 @@
         /* button  #btnLoginNovoUsuario */
     $(document).on("click", "#btnLoginNovoUsuario", function(evt)
     {
+<<<<<<< HEAD
         var dispUUID = device.uuid;
         var dispNome = device.manufacturer +" "+ device.model;
         
         if (checaWS()) {
+=======
+        if (checaWS()) {            
+>>>>>>> origin/master
             
             var valuesCheca = [ $("#txtNomeNovoUsuario").val(), $("#txtSenhaNovoUsuario").val() ];
             
