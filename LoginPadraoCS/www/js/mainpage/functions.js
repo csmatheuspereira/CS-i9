@@ -21,10 +21,11 @@ function loginMainPage(json){
     if (json.result==true) {
         $("#txtSenhaMainPage").val("");
         
-        idUsuario = json.ID;
+        localStorage.setItem("idUsuario", json.ID);
         
-        if(json.SENHACRIPTO != "gambi"){
-            senha = json.SENHACRIPTO;
+        if(json.SENHACRIPTO != "-1"){
+            localStorage.setItem("senha", json.SENHACRIPTO);
+            flagSenha = "S";
         }
         
         activate_page("#activitymain");        
@@ -32,7 +33,7 @@ function loginMainPage(json){
         if(json.msg != ""){
             navigator.notification.alert(json.msg);
         }else{
-            navigator.notification.alert("Usuário ou senha incorreto(s).");
+            navigator.notification.alert("Usuário ou senha incorreto(s) ou usuário não cadastrado no aplicativo.");
         }
     }
     
@@ -46,6 +47,11 @@ $(document).on("change", "#cmbUsuarioMainPage", function() {
 
 function logout(json){
     if (json.result == true) {
+        
+        localStorage.setItem("idUsuario", "");
+        localStorage.setItem("login", "");
+        localStorage.setItem("senha",  "");
+        
         activate_page("#mainpage");
     }else{
         navigator.notification.alert("Falha ao desconectá-lo.");

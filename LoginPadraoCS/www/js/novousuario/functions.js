@@ -35,16 +35,17 @@ function login(json){
         }                            
         $("#txtSenhaNovoUsuario").val("");
         
-        idUsuario = json.ID;
+        localStorage.setItem("idUsuario", json.ID);
         
-        if(json.SENHACRIPTO != "gambi"){
-            senha = json.SENHACRIPTO;
+        if(json.SENHACRIPTO != "-1"){
+            localStorage.setItem("senha", json.SENHACRIPTO);
+            flagSenha = "S";
         }
         
         activate_page("#activitymain");
         
     } else {
-        navigator.notification.alert("Usuário ou senha incorreto(s).");
+        navigator.notification.alert("Usuário ou senha incorreto(s) ou usuário não cadastrado no aplicativo.");
     }
     
 }

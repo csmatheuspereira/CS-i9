@@ -28,17 +28,17 @@
         /* button  #btnLoginNovoUsuario */
     $(document).on("click", "#btnLoginNovoUsuario", function(evt)
     {
+        var dispUUID = device.uuid;
+        var dispNome = device.manufacturer +" "+ device.model;
+        
         if (checaWS()) {
-            
-            var dispUUID = device.uuid;
-            var dispNome = device.manufacturer + " " + device.model;
             
             var valuesCheca = [ $("#txtNomeNovoUsuario").val(), $("#txtSenhaNovoUsuario").val() ];
             
-            login = $("#txtNomeNovoUsuario").val();
-            senha = Cript($("#txtSenhaNovoUsuario").val());
+            localStorage.setItem("login", $("#txtNomeNovoUsuario").val());
+            localStorage.setItem("senha", Cript($("#txtSenhaNovoUsuario").val()));
             
-            var values = {'acao':'login','Login':login,'Senha':senha,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
+            var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
 
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", login);
@@ -64,13 +64,6 @@
         /* button  #btnConfigMainPage */
     $(document).on("click", "#btnConfigMainPage", function(evt)
     {
-         /*global uib_sb */
-         /* Other possible functions are: 
-           uib_sb.open_sidebar($sb)
-           uib_sb.close_sidebar($sb)
-           uib_sb.toggle_sidebar($sb)
-            uib_sb.close_all_sidebars()
-          See js/sidebar.js for the full sidebar API */
         
          uib_sb.toggle_sidebar($(".uib_w_15"));  
     });
@@ -78,13 +71,6 @@
         /* button  #btnVoltarMainPage */
     $(document).on("click", "#btnVoltarMainPage", function(evt)
     {
-         /*global uib_sb */
-         /* Other possible functions are: 
-           uib_sb.open_sidebar($sb)
-           uib_sb.close_sidebar($sb)
-           uib_sb.toggle_sidebar($sb)
-            uib_sb.close_all_sidebars()
-          See js/sidebar.js for the full sidebar API */
         
          uib_sb.toggle_sidebar($(".uib_w_15"));  
     });
@@ -128,22 +114,19 @@
         /* button  #btnLoginMainPage */
     $(document).on("click", "#btnLoginMainPage", function(evt)
     {
-        
-            var dispUUID = device.uuid;
-            var dispNome = device.manufacturer + " " + device.model;
-            
-           //navigator.notification.alert(dispUUID + " - " + dispNome + " - " + dispToken);
-        
+        var dispUUID = device.uuid;
+        var dispNome = device.manufacturer +" "+ device.model;
+
         if (checaWS()) {
             
             var cmbText = document.getElementById("cmbUsuarioMainPage");
             
             var valuesCheca = [ cmbText.options[cmbText.selectedIndex].text, $("#txtSenhaMainPage").val() ];
             
-            login = cmbText.options[cmbText.selectedIndex].text;
-            senha = Cript($("#txtSenhaMainPage").val());
+            localStorage.setItem("login", cmbText.options[cmbText.selectedIndex].text);
+            localStorage.setItem("senha", Cript($("#txtSenhaMainPage").val()));
             
-            var values = {'acao':'login','Login':login,'Senha':senha,'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
+            var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
                         
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", loginMainPage);
@@ -156,8 +139,8 @@
         }         
     });
      
-        //listaUsuariosLocais();
         checaWS();
+     
      if(device.platform == "android"){
         $("#loader").removeClass("hidden");
         var push = PushNotification.init({ "android": {"senderID": "788790867910"},
@@ -184,27 +167,24 @@
         push.on('error', function(e) {
             console.log(e.message);
         });
-     }
-    
-        /* button  #btnLogoutActivityMain */
-    
+     }   
     
         /* button  #btnLogoutActivityMain */
     $(document).on("click", "#btnLogoutActivityMain", function(evt)
     {
+        var values = {'acao':'logout','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'FlagSenha':flagSenha,'dispUUID':device.uuid};
+        
         if (checaWS()) {
-            
-            var values = {'acao':'logout','Login':login,'Senha':senha,'dispUUID':device.uuid};  
             webService(values, "#retorno", logout);
         } else {
             navigator.notification.alert("Defina a URL de serviço!", "Atenção");
             activate_page("#configuracoes");
         }     
     });
-    
+
+     
     }
-    
-    
+       
     document.addEventListener("app.Ready", register_event_handlers, false);
         
 })();
