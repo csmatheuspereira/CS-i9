@@ -1,25 +1,24 @@
 var urlWS = "";
-<<<<<<< HEAD
 var flagSenha = "N";
-=======
-var idUsuario = "";
-var login = "";
-var senha = "";
-var inativo;
->>>>>>> origin/master
 
 function checaWS(){
-    alert(this.inativo);
-    if (localStorage.getItem("urlWS") != "") {
-        urlWS = localStorage.getItem("urlWS");
-        return true;
-    } else {
-        urlWS = "";
-
+    
+    if (localStorage.getItem("urlWS") === null) {
+        localStorage.setItem("urlWS", "");
+        urlWS = "";    
         return false;
+    } else {
+    
+        if (localStorage.getItem("urlWS").length > 0) {
+            urlWS = localStorage.getItem("urlWS");
+            return true;            
+        } else {
+            localStorage.setItem("urlWS", "");
+            urlWS = "";
+            return false;
+        }
     }
 }
-
 
 function webService(values, status, callback){
         $.ajax({
@@ -69,7 +68,6 @@ function dump(obj) {
     //alert(out);
 }
 
-
 function Cript(dados){
 
     var chave = 487;
@@ -97,24 +95,3 @@ function Cript(dados){
     }
     return nw;
 }
-
-function pegaTempo(){
-    var d = new Date();
-    var ms = d.getTime()/60000;
-    return ms;
-}
-
-function setInatividade(){
-    localStorage.setItem('tempoInativo', pegaTempo());
-}
-
-function getInatividade(){
-    setInatividade();
-    return localStorage.getItem('tempoInativo');
-}
-
-function Inatividade(){  
-    setInterval(function(){ alert("tempo passou " + getInatividade());}, eval(getInatividade) + 3000);
-}
-
-

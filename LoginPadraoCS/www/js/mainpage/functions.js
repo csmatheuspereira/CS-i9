@@ -9,11 +9,8 @@ function listaUsuariosLocais() {
                 text: usuarios.NOME
             }));
             
-        })
-        
-        
+        })                
     })
-    
 }
 
 function loginMainPage(json){
@@ -22,6 +19,26 @@ function loginMainPage(json){
         $("#txtSenhaMainPage").val("");
         
         localStorage.setItem("idUsuario", json.ID);
+        
+        if(json.autoLogout == "-1" || json.autoLogout == null || json.autoLogout == undefined){
+            navigator.notification.confirm("Você deseja que este dispositivo desconecte-se automaticamente após 30 minutos?", function(buttonID){
+                
+                if(buttonID == 1){
+                    
+                    var values = {'acao':'configuracoes','config':'autoLogout','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'FlagSenha':flagSenha,'dispUUID':device.uuid,'autoLogout':1};
+                   // dump(values);
+                    webService(values, '#retorno', autoLogout);
+                    
+                }else{
+                    
+                    var values = {'acao':'configuracoes','config':'autoLogout','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'FlagSenha':flagSenha,'dispUUID':device.uuid,'autoLogout':0};
+                    
+                    webService(values, '#retorno', autoLogout);
+                    
+                }
+                
+            }, "Atenção", ["Sim", "Não"]);
+        }
         
         if(json.SENHACRIPTO != "-1"){
             localStorage.setItem("senha", json.SENHACRIPTO);
@@ -52,9 +69,20 @@ function logout(json){
         localStorage.setItem("login", "");
         localStorage.setItem("senha",  "");
         
+        listaUsuariosLocais();
+        
         activate_page("#mainpage");
     }else{
         navigator.notification.alert("Falha ao desconectá-lo.");
     };
+}
+
+function autoLogout(json){
+    
+    if(json.result == false){
+       
+        alert("Erro ao salvar o autoLogout.");        
+    }
+    
 }
     

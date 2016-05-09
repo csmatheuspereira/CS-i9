@@ -9,33 +9,87 @@
  {
     var dispToken = "";
     
+    // Funções que ocorrem ao abrir o app
+    listaUsuariosLocais();     
+     
+    if (!checaWS()) { 
+         navigator.notification.alert("Defina a URL de serviço", "Atenção");
+         activate_page("#configuracoes");
+     };             
+     
+     $(function() {
+
+        var awayCallback = function() {              
+            if (localStorage.getItem("login").length > 0) {
+                 var values = {'acao':'logout','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'FlagSenha':flagSenha,'dispUUID':device.uuid};
+
+                if (checaWS()) {
+                    webService(values, "#retorno", logout);
+                    $(".uib_w_39").modal("toggle");
+                } else {
+                    navigator.notification.alert("Defina a URL de serviço!", "Atenção");
+                    activate_page("#configuracoes");
+                }
+            }
+        };
+
+        var idle = new Idle({
+            onAway : awayCallback,
+            awayTimeout :1800000 
+        }).start();
+
+        idle.setAwayTimeout(1800000);
+    }); // Detectar inatividade do usuário e desconectá-lo em 30 minutos               
+    
+     if(device.platform == "android"){
+        $("#loader").removeClass("hidden");
+        var push = PushNotification.init({ "android": {"senderID": "788790867910"},
+        "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+
+        push.on('registration', function(data) {
+            //console.log(data.registrationId);
+            //$("#gcm_id").html(data.registrationId);
+            $("#loader").addClass("hidden");
+            dispToken = data.registrationId;
+            navigator.notification.alert(dispToken);
+        });
+
+        push.on('notification', function(data) {
+            console.log(data.message);
+            alert(data.title+" Message: " +data.message);
+            // data.title,
+            // data.count,
+            // data.sound,
+            // data.image,
+            // data.additionalData
+        });
+
+        push.on('error', function(e) {
+            console.log(e.message);
+        });
+    }         
+     
      /* button  #btnNovo */
     $(document).on("click", "#btnNovoMainPage", function(evt)
-    {
-         /*global activate_page */
-         activate_page("#novousuario"); 
+    {        
+        activate_page("#novousuario"); 
     });
     
         /* button  #btnVoltarNovoUsuario */
     $(document).on("click", "#btnVoltarNovoUsuario", function(evt)
     {
-         /*global activate_page */
-        listaUsuariosLocais();
+         listaUsuariosLocais();
         
-        activate_page("#mainpage"); 
+         activate_page("#mainpage"); 
     });
     
         /* button  #btnLoginNovoUsuario */
     $(document).on("click", "#btnLoginNovoUsuario", function(evt)
     {
-<<<<<<< HEAD
         var dispUUID = device.uuid;
         var dispNome = device.manufacturer +" "+ device.model;
         
         if (checaWS()) {
-=======
-        if (checaWS()) {            
->>>>>>> origin/master
             
             var valuesCheca = [ $("#txtNomeNovoUsuario").val(), $("#txtSenhaNovoUsuario").val() ];
             
@@ -54,73 +108,34 @@
             activate_page("#configuracoes");
         }            
     });
-    
-    
-        /* listitem  #btnLimparBDMainPage */
-    $(document).on("click", "#btnLimparBDMainPage", function(evt)
-    {
-        localStorage.setItem("urlWS", "");
-        dati.emptyTable("tblUsers",function(status){
-            listaUsuariosLocais();
-        }); 
-    });
-    
+        
         /* button  #btnConfigMainPage */
     $(document).on("click", "#btnConfigMainPage", function(evt)
-    {
-        
-         uib_sb.toggle_sidebar($(".uib_w_15"));  
+    {                
+        document.getElementById("txtURLConfiguracoes").value = localStorage.getItem("urlWS");
+        activate_page("#configuracoes"); 
     });
-    
-        /* button  #btnVoltarMainPage */
-    $(document).on("click", "#btnVoltarMainPage", function(evt)
-    {
-        
-         uib_sb.toggle_sidebar($(".uib_w_15"));  
-    });
-    
-        /* listitem  #btnURLMainPage */
-    $(document).on("click", "#btnURLMainPage", function(evt)
-    {
-        uib_sb.close_sidebar($(".uib_w_15"));   
-            
-        document.getElementById("txtURLConfiguracoes").value = localStorage.getItem("urlWS");            
-        
-        activate_page("#configuracoes");
-    
-        
-    });
-    
-        /* button  #btnCancelarConfiguracoes */
-    $(document).on("click", "#btnCancelarConfiguracoes", function(evt)
+
+        /* button  #btnVoltarConfiguracoes */
+    $(document).on("click", "#btnVoltarConfiguracoes", function(evt)
     {
          /*global activate_page */
          activate_page("#mainpage");
     });
-        
-    
+            
         /* button  #btnSalvarConfiguracoes */
     $(document).on("click", "#btnSalvarConfiguracoes", function(evt)
     {
         localStorage.setItem("urlWS", $("#txtURLConfiguracoes").val());
         activate_page("#mainpage");
-    });
-     
-     listaUsuariosLocais();
-     if (!checaWS()) { 
-         navigator.notification.alert("Defina a URL de serviço", "Atenção");
-         activate_page("#configuracoes");
-     } ;
-    
-    
-    
+    });              
     
         /* button  #btnLoginMainPage */
     $(document).on("click", "#btnLoginMainPage", function(evt)
     {
         var dispUUID = device.uuid;
-        var dispNome = device.manufacturer +" "+ device.model;
-
+        var dispNome = device.manufacturer +" "+ device.model;    
+        
         if (checaWS()) {
             
             var cmbText = document.getElementById("cmbUsuarioMainPage");
@@ -129,7 +144,7 @@
             
             localStorage.setItem("login", cmbText.options[cmbText.selectedIndex].text);
             localStorage.setItem("senha", Cript($("#txtSenhaMainPage").val()));
-            
+                        
             var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
                         
             if(!checaCampo(valuesCheca)){
@@ -142,53 +157,113 @@
             activate_page("#configuracoes");
         }         
     });
-     
-        checaWS();
-     
-     if(device.platform == "android"){
-        $("#loader").removeClass("hidden");
-        var push = PushNotification.init({ "android": {"senderID": "788790867910"},
-            "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
-
-        push.on('registration', function(data) {
-            //console.log(data.registrationId);
-            //$("#gcm_id").html(data.registrationId);
-            $("#loader").addClass("hidden");
-            dispToken = data.registrationId;
-           // navigator.notification.alert(dispToken);
-        });
-
-        push.on('notification', function(data) {
-            console.log(data.message);
-            alert(data.title+" Message: " +data.message);
-            // data.title,
-            // data.count,
-            // data.sound,
-            // data.image,
-            // data.additionalData
-        });
-
-        push.on('error', function(e) {
-            console.log(e.message);
-        });
-     }   
-    
-        /* button  #btnLogoutActivityMain */
-    $(document).on("click", "#btnLogoutActivityMain", function(evt)
+                 
+    				       
+        /* button  #btnLimparConfiguracoes */
+    $(document).on("click", "#btnLimparConfiguracoes", function(evt)
     {
-        var values = {'acao':'logout','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'FlagSenha':flagSenha,'dispUUID':device.uuid};
+        localStorage.setItem("login", "");
+        localStorage.setItem("senha", "");
+        localStorage.setItem("idUsuario", "");
+        localStorage.setItem("urlWS", "");
         
+        alert("Apagado!");
+        
+        //localStorage.setItem("indexUsr", 0);                
+        
+        dati.emptyTable("tblUsers",function(status){
+            listaUsuariosLocais();
+        }); 
+    });    
+    
+    
+        /* button  #btnConfigActivityMain */
+    $(document).on("click", "#btnConfigActivityMain", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#configGlobal"); 
+    });
+     
+    
+        /* button  #btnSairConfig */
+    $(document).on("click", "#btnSairConfig", function(evt)
+    {        
+        var values = {'acao':'logout','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'FlagSenha':flagSenha,'dispUUID':device.uuid};
+
         if (checaWS()) {
             webService(values, "#retorno", logout);
         } else {
             navigator.notification.alert("Defina a URL de serviço!", "Atenção");
             activate_page("#configuracoes");
-        }     
+        }        
     });
-
      
-    }
-       
+    
+        /* button  #btnVoltarConfig */
+    $(document).on("click", "#btnVoltarConfig", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#activitymain"); 
+    });
+     
+    
+        /* button  #btnDispositivosConfig */
+    $(document).on("click", "#btnDispositivosConfig", function(evt)
+    {
+        if (checaWS()){
+        var values = {'acao':'configuracoes', 
+                      'config':'dispositivos',
+                      'Login':localStorage.getItem("login"),
+                      'Senha':localStorage.getItem("senha"),
+                      'FlagSenha':flagSenha,
+                      'idUsuario':localStorage.getItem("idUsuario")
+                     };
+        webService(values,'#retorno',listaDispositivos);
+        }
+    });
+     
+    
+        /* graphic button  #btnCargosActivityMain */
+    $(document).on("click", "#btnCargosActivityMain", function(evt)
+    {
+        if (checaWS()){
+            var values = {'acao':"cargo", 
+                          'Login':localStorage.getItem("login"),
+                          'Senha':localStorage.getItem("senha"),
+                          'FlagSenha':flagSenha,
+                          'idUsuario':localStorage.getItem("idUsuario")
+                         };
+            webService(values, "#retorno", chamaCargo);             
+        } else {
+            navigator.notification.alert("Defina a URL de serviço!", "Atenção");
+            activate_page("#configuracoes");
+        }
+         
+
+    });
+     
+    
+        /* button  #btnVoltarCargo */
+    $(document).on("click", "#btnVoltarCargo", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#activitymain"); 
+    });
+    
+        /* button  #btnVoltarDispositivos */
+    $(document).on("click", "#btnVoltarDispositivos", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#configGlobal"); 
+    });
+    
+        /* button  #btnDeletaDisp */
+    $(document).on("click", "#btnDeletaDisp", function(evt)
+    {
+        deletaItemDisp($(this).attr("codigo"));
+    });
+    
+    }       
     document.addEventListener("app.Ready", register_event_handlers, false);
         
 })();

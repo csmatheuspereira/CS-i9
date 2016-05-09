@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "lastModifiedDate": 1460663982853,
+      "lastModifiedDate": 1462474446266,
       "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
@@ -29,7 +29,7 @@
       {
         "id": "cordova-plugin-statusbar",
         "name": "StatusBar",
-        "version": "2.1.0",
+        "version": "2.0.0",
         "originType": "cordova.io",
         "origin": "cordova-plugin-statusbar",
         "gitref": "",
@@ -42,11 +42,11 @@
         "description": "Cordova StatusBar Plugin",
         "data": {},
         "dependedBy": [],
-        "checksum": "858cc583"
+        "checksum": "b92cbbef"
       },
       {
         "id": "cordova-plugin-device",
-        "version": "1.1.1",
+        "version": "1.1.0",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -59,11 +59,11 @@
         "gitref": "",
         "name": "Device",
         "description": "Cordova Device Plugin",
-        "checksum": "927290ca"
+        "checksum": "1eae5d64"
       },
       {
         "id": "cordova-plugin-splashscreen",
-        "version": "3.2.0",
+        "version": "2.1.0",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -76,7 +76,7 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "452a4659"
+        "checksum": "a7fdb6d9"
       },
       {
         "id": "cordova-plugin-dialogs",
@@ -99,20 +99,18 @@
       {
         "id": "phonegap-plugin-push",
         "name": "PushPlugin",
-        "version": "1.6.2",
-        "originType": "repo",
-        "origin": "https://github.com/phonegap/phonegap-plugin-push",
+        "version": "1.4.3",
+        "originType": "cordova.io",
+        "origin": "phonegap-plugin-push",
         "gitref": "",
-        "subdir": ".",
-        "paramvals": {
-          "SENDER_ID": "788790867910"
-        },
+        "paramvals": {},
         "sourceLocation": "plugins/phonegap-plugin-push",
         "selectedState": "Included",
-        "checksum": "139aa8e4",
+        "checksum": "b8b2263e",
         "dependsOn": [],
         "topLevel": true,
-        "cordovaVersion": ">=3.6.3",
+        "cordovaVersion": ">=3.0.0",
+        "author": "Bob Easterday",
         "permissions": {
           "android:name": [
             "android.permission.INTERNET",
@@ -123,7 +121,7 @@
             "$PACKAGE_NAME.permission.C2D_MESSAGE"
           ]
         },
-        "description": "\r\n\t\tThis plugin allows your application to receive push notifications on Android, iOS and Windows devices.\r\n    Android uses Google Cloud Messaging.\r\n    iOS uses Apple APNS Notifications.\r\n    Windows uses Microsoft WNS Notifications.\r\n\t",
+        "description": "\n\t\tThis plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.\n    Android uses Google Cloud Messaging.\n    iOS uses Apple APNS Notifications.\n    WP8 uses Microsoft MPNS Notifications.\n    Windows8 uses Microsoft WNS Notifications.\n\t",
         "data": {},
         "dependedBy": []
       }
@@ -141,10 +139,10 @@
           "Orientation": "portrait"
         },
         "isActive_": true,
-        "appName_": "CompuSoft App",
-        "appID_": "xdk.intel.blank.ad.template.crosswalk",
+        "appName_": "CS Login",
+        "appID_": "com.compusoft.loginUI",
         "appAccess_": {
-          "mode": "whitelist",
+          "mode": "legacy",
           "network": [
             "*"
           ],
@@ -217,12 +215,12 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "",
-        "cordovaCLIVersion_": "5.4.1",
+        "certificateId_": "z4tJ9TaxnEGHDpJLii-ogA2",
+        "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.0.1",
-        "appAuthor_": "CompuSoft",
-        "appDescription_": "CompuSoft App",
+        "appVersion_": "0.2.0",
+        "appAuthor_": "Compusoft",
+        "appDescription_": "Compusoft App",
         "appVersionCode_": "1"
       },
       "iOS": {
@@ -231,12 +229,13 @@
         "name_": "iOS",
         "preferences_": {
           "ios-configuration": "adhoc",
-          "deployment-target": "8.0",
-          "Orientation": "portrait"
+          "deployment-target": "7.0",
+          "Orientation": "portrait",
+          "Fullscreen": false
         },
         "isActive_": true,
-        "appName_": "CompuSoft App",
-        "appID_": "xdk.intel.blank.ad.template",
+        "appName_": "CS i9",
+        "appID_": "com.compusoft.loginUI",
         "appAccess_": {
           "mode": "whitelist",
           "network": [
@@ -259,13 +258,23 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "",
-        "iosProvs_": [],
-        "cordovaCLIVersion_": "5.4.1",
+        "certificateId_": "CG6prv7_hUSj5zrWEsA-6g2",
+        "iosProvs_": [
+          {
+            "relPath": "adhoci9.mobileprovision",
+            "type": "adhoc"
+          },
+          {
+            "relPath": "profilei9.mobileprovision",
+            "type": "production"
+          }
+        ],
+        "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.0.1",
+        "appVersion_": "0.2.0",
         "appAuthor_": "CompuSoft",
-        "appDescription_": "CompuSoft App"
+        "appDescription_": "CS i9",
+        "appVersionCode_": "0.2.0"
       },
       "Windows8": {
         "platform_": "windows8",
@@ -292,7 +301,7 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
-        "cordovaCLIVersion_": "5.4.1",
+        "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
         "appVersion_": "0.0.0.1",
         "appAuthor_": "CompuSoft",
@@ -303,7 +312,7 @@
         "runtime_": "W3C",
         "name_": "WebApp",
         "preferences_": {},
-        "isActive_": false,
+        "isActive_": true,
         "appName_": "loginUITeste",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -327,7 +336,7 @@
         "runtime_": "W3C on Chrome OS",
         "name_": "Chrome",
         "preferences_": {},
-        "isActive_": false,
+        "isActive_": true,
         "appName_": "loginUITeste",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -416,7 +425,7 @@
         "excludedLibraries_": "",
         "certificateId_": "",
         "appVersion_": "0.0.0.1",
-        "cordovaCLIVersion_": "5.4.1",
+        "cordovaCLIVersion_": "5.1.1",
         "appAuthor_": "Intel XDK"
       }
     },
