@@ -263,6 +263,34 @@
         deletaItemDisp($(this).attr("codigo"));
     });
     
+        /* button  #btnVoltarVagas */
+    $(document).on("click", "#btnVoltarVagas", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#activitymain"); 
+    });
+    
+        /* graphic button  #btnVagasActivityMain */
+    $(document).on("click", "#btnVagasActivityMain", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#vagas"); 
+    });
+    
+        /* listitem  #lvItemVaga */
+    $(document).on("click", "#lvItemVaga", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#vaga"); 
+    });
+    
+        /* button  #btnVoltarVaga */
+    $(document).on("click", "#btnVoltarVaga", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#vagas"); 
+    });
+    
     }       
     document.addEventListener("app.Ready", register_event_handlers, false);
         

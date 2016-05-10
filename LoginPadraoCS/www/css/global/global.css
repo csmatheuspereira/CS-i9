@@ -1,0 +1,28 @@
+/*  CSS Tela Dispositivos  */
+.img-device{
+    float: left;
+    width: 25px;
+    margin-right:10px;
+    margin-top: 5px;
+    margin-left: -5px;
+    
+}
+.text-listv{
+    text-align: left;
+}
+
+/*  Fim CSS Tela Dispositivos  */
+
+
+/*  CSS Tela Vagas  */
+
+.img-vaga{
+    width: 25px;
+    height: 25px;
+    float: right;
+    margin-top: 10px;
+}
+
+/*  Fim CSS Tela Vagas*/
+        
+        
