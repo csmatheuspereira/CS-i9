@@ -1,3 +1,27 @@
+
+.badge-final{
+    margin-left: 75%;
+    margin-top: -20%;
+    z-index: 1;
+    width: 23% !important;
+    height: 30% !important;
+    background-color: red;
+    border-radius: 100% !important;
+    font-size: 1em !important;
+    padding-top:8% !important;
+    position: absolute;                
+}
+@media screen and (min-width: 720px){
+    .badge-final{
+        font-size: 1.5em !important; 
+    }
+}
+
+
+/* fim Activity Main*/
+
+
+
 /*  CSS Tela Dispositivos  */
 .img-device{
     float: left;

@@ -273,22 +273,27 @@
         /* graphic button  #btnVagasActivityMain */
     $(document).on("click", "#btnVagasActivityMain", function(evt)
     {
-         /*global activate_page */
-         activate_page("#vagas"); 
+        if (checaWS()){
+        var values = {'acao':'vagas', 
+                      'Login':localStorage.getItem("login"),
+                      'Senha':localStorage.getItem("senha"),
+                      'FlagSenha':flagSenha,
+                      'idUsuario':localStorage.getItem("idUsuario")
+                     };
+        webService(values,'#retorno',listaVagas);
+        }
     });
     
         /* listitem  #lvItemVaga */
     $(document).on("click", "#lvItemVaga", function(evt)
     {
-         /*global activate_page */
-         activate_page("#vaga"); 
+        perfilVaga($(this).attr("data-codigo"));
     });
     
         /* button  #btnVoltarVaga */
     $(document).on("click", "#btnVoltarVaga", function(evt)
     {
-         /*global activate_page */
-         activate_page("#vagas"); 
+        activate_page("#vagas");
     });
     
     }       

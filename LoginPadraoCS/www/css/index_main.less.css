@@ -1125,6 +1125,7 @@ label:empty {
 	.pnMainStyleCustom > .panel-collapse > .panel-body
 */
 .pnMainStyleCustom {
+  margin-top: 60px;
   padding: 8px;
 }
 .btnDeletaDispStyleCustom {
