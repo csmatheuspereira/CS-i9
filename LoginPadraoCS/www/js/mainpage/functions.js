@@ -45,6 +45,8 @@ function loginMainPage(json){
             flagSenha = "S";
         }
         
+        badge(json.qtde, ".badVagas", localStorage.getItem("cliqueVaga"));
+        
         activate_page("#activitymain");        
     } else {
         if(json.msg != ""){

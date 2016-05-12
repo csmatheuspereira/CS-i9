@@ -95,3 +95,53 @@ function Cript(dados){
     }
     return nw;
 }
+
+
+// Controla qualquer badge que precise no aplicativo
+
+// Parametro quantidade(1): quantidade recebida do JSON, serve tambem para comparasao.
+// Parametro objeto(2): deve ser passado o ID ou CLASSSE do objeto que sera inserido o numero
+
+// Modo de uso:
+//  badge(variavelDeEntradaJSON, ".classeDoObjeto"); Exemplo com CLASSE do objeto
+//  badge(variavelDeEntradaJSON, "#idDoObjeto"); Exemplo com ID do objeto
+
+function badge(quantidade,objeto,clique){
+    
+    if(quantidade > 0 && quantidade < 100 && clique == "0"){
+        $(objeto).removeClass("hidden");
+        $(objeto).html(" ");
+        $(objeto).html(quantidade);
+    }else if(quantidade > 99 && clique == "0"){
+        $(objeto).removeClass("hidden");
+        $(objeto).html(" ");
+        $(objeto).html("+99");
+    }else{
+        $(objeto).addClass("hidden");
+    }
+    
+}
+
+function geraData(separador,posicao){
+    
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    }
+    
+    if(posicao == 1){
+        today = dd+separador+mm+separador+yyyy;
+    }else if(posicao == 2){
+        today = yyyy+separador+mm+separador+dd;
+    }
+    
+    return today;
+    
+}

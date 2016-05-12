@@ -31,3 +31,40 @@ function perfilVaga(id){
     activate_page("#vaga");
     
 }
+
+// Verifica se já exite uma data definida no LOCALSTORAGE, caso não exista
+// definine a data atual para o LOCALSTORAGE.
+//-- NECESSARIO PARA EVITAR BUG AO MOMENTO DE
+// INSTALACAO DO APLICATIVO POIS O LOCALSTORAGE ESTARA VAZIO. ---
+
+// Valor de default da flag é 0(somente retorno)
+// Valor 1(grava uma nova data e a retorna)
+
+// Modo de uso:
+//  badgeNovasVagas(); Modo default (0) da funcao, somente retorno
+//  badgeNovasVagas(1); Modo gravar e retornar (1) da funcao, grava uma nova data e a retorna
+
+function badgeNovasVagas(flagSetaData){
+    if (typeof(flagSetaData)==='undefined') flagSetaData = 0;
+    
+    if (localStorage.getItem("dataUltimoClique") === null || flagSetaData == 1) {
+        cliqueVaga();
+        localStorage.setItem("dataUltimoClique", geraData('/',1));        
+        return localStorage.getItem("dataUltimoClique");
+    }else if(flagSetaData == 0){
+        cliqueVaga();
+        return localStorage.getItem("dataUltimoClique");
+    }
+    
+}
+
+function cliqueVaga(){
+    if(localStorage.getItem("cliqueVaga") === null){
+        localStorage.setItem("cliqueVaga", 0);
+    }else{
+        if(geraData("/", 1) > localStorage.getItem("dataUltimoClique")){
+            localStorage.setItem("cliqueVaga", 0);
+        }
+    }
+    
+}

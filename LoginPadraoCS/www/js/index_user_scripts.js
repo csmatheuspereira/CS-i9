@@ -10,9 +10,9 @@
     var dispToken = "";
     
     // Funções que ocorrem ao abrir o app
-    listaUsuariosLocais();     
-     
-    if (!checaWS()) { 
+    listaUsuariosLocais();
+
+    if (!checaWS()) {
          navigator.notification.alert("Defina a URL de serviço", "Atenção");
          activate_page("#configuracoes");
      };             
@@ -96,7 +96,7 @@
             localStorage.setItem("login", $("#txtNomeNovoUsuario").val());
             localStorage.setItem("senha", Cript($("#txtSenhaNovoUsuario").val()));
             
-            var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
+            var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken,'dataClique':badgeNovasVagas()};
 
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", login);
@@ -145,7 +145,7 @@
             localStorage.setItem("login", cmbText.options[cmbText.selectedIndex].text);
             localStorage.setItem("senha", Cript($("#txtSenhaMainPage").val()));
                         
-            var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken};
+            var values = {'acao':'login','Login':localStorage.getItem("login"),'Senha':localStorage.getItem("senha"),'DispUUID':dispUUID,'DispNome':dispNome,'DispToken':dispToken,'dataClique':badgeNovasVagas()};
                         
             if(!checaCampo(valuesCheca)){
                 webService(values, "#retorno", loginMainPage);
@@ -280,7 +280,12 @@
                       'FlagSenha':flagSenha,
                       'idUsuario':localStorage.getItem("idUsuario")
                      };
-        webService(values,'#retorno',listaVagas);
+            
+        
+            badgeNovasVagas(1);
+            localStorage.setItem("cliqueVaga", 1);
+            $(".badge-final").addClass("hidden");
+            webService(values,'#retorno',listaVagas);
         }
     });
     

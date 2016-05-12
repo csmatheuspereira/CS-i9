@@ -468,7 +468,7 @@ label:empty {
 }
 @media all {
   .header-bg {
-    background-color: #cf4538;
+    background-color: #e74c3c;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -591,6 +591,13 @@ label:empty {
     text-align: center;
   }
 }
+@media all and (min-width: 720px) {
+  .default-graphic-text {
+    font-size: 1.8em;
+    color: #000000;
+    text-align: center;
+  }
+}
 @media all {
   .default-graphic-sizing {
     width: 40% !important;
@@ -653,7 +660,7 @@ label:empty {
     padding-right: 20px;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 720px) {
   .row-height-1 > .col > .content-area {
     min-height: 292px;
   }
@@ -685,7 +692,7 @@ label:empty {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 720px) {
   .row-height-2 > .col > .content-area {
     min-height: 337px;
   }
@@ -738,7 +745,7 @@ label:empty {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 720px) {
   .row-height-3 > .col > .content-area {
     min-height: 154px;
   }
@@ -1066,7 +1073,7 @@ label:empty {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 720px) {
   .row-height-4 > .col > .content-area {
     min-height: 160px;
   }
@@ -1089,7 +1096,7 @@ label:empty {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 320px) {
+@media all and (min-width: 720px) {
   .row-height-5 > .col > .content-area {
     min-height: 44px;
   }
@@ -1102,7 +1109,11 @@ label:empty {
 .btnMenuStyleCustom {
   margin: 5%;
 }
-@media all and (min-width: 320px) {
+.btnMenuStyleCustom:hover {
+  color: #000;
+  text-decoration: none;
+}
+@media all and (min-width: 720px) {
   .row-height-6 > .col > .content-area {
     min-height: 100px;
   }

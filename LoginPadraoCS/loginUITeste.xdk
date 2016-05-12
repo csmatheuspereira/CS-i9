@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "lastModifiedDate": 1462474446266,
+      "lastModifiedDate": 1463082316257,
       "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
@@ -29,7 +29,7 @@
       {
         "id": "cordova-plugin-statusbar",
         "name": "StatusBar",
-        "version": "2.0.0",
+        "version": "2.1.0",
         "originType": "cordova.io",
         "origin": "cordova-plugin-statusbar",
         "gitref": "",
@@ -42,11 +42,11 @@
         "description": "Cordova StatusBar Plugin",
         "data": {},
         "dependedBy": [],
-        "checksum": "b92cbbef"
+        "checksum": "858cc583"
       },
       {
         "id": "cordova-plugin-device",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -59,11 +59,11 @@
         "gitref": "",
         "name": "Device",
         "description": "Cordova Device Plugin",
-        "checksum": "1eae5d64"
+        "checksum": "927290ca"
       },
       {
         "id": "cordova-plugin-splashscreen",
-        "version": "2.1.0",
+        "version": "3.2.0",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -76,7 +76,7 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "a7fdb6d9"
+        "checksum": "452a4659"
       },
       {
         "id": "cordova-plugin-dialogs",
@@ -99,18 +99,19 @@
       {
         "id": "phonegap-plugin-push",
         "name": "PushPlugin",
-        "version": "1.4.3",
-        "originType": "cordova.io",
-        "origin": "phonegap-plugin-push",
+        "version": "1.6.3",
+        "originType": "repo",
+        "origin": "https://github.com/phonegap/phonegap-plugin-push",
         "gitref": "",
-        "paramvals": {},
+        "paramvals": {
+          "SENDER_ID": "788790867910"
+        },
         "sourceLocation": "plugins/phonegap-plugin-push",
         "selectedState": "Included",
-        "checksum": "b8b2263e",
+        "checksum": "724aca3e",
         "dependsOn": [],
         "topLevel": true,
-        "cordovaVersion": ">=3.0.0",
-        "author": "Bob Easterday",
+        "cordovaVersion": ">=3.6.3",
         "permissions": {
           "android:name": [
             "android.permission.INTERNET",
@@ -118,12 +119,13 @@
             "android.permission.WAKE_LOCK",
             "android.permission.VIBRATE",
             "com.google.android.c2dm.permission.RECEIVE",
-            "$PACKAGE_NAME.permission.C2D_MESSAGE"
+            "${applicationId}.permission.C2D_MESSAGE"
           ]
         },
-        "description": "\n\t\tThis plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.\n    Android uses Google Cloud Messaging.\n    iOS uses Apple APNS Notifications.\n    WP8 uses Microsoft MPNS Notifications.\n    Windows8 uses Microsoft WNS Notifications.\n\t",
+        "description": "\r\n\t\tThis plugin allows your application to receive push notifications on Android, iOS and Windows devices.\r\n    Android uses Google Cloud Messaging.\r\n    iOS uses Apple APNS Notifications.\r\n    Windows uses Microsoft WNS Notifications.\r\n\t",
         "data": {},
-        "dependedBy": []
+        "dependedBy": [],
+        "subdir": "."
       }
     ],
     "buildConfigurations": {
@@ -215,10 +217,10 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "z4tJ9TaxnEGHDpJLii-ogA2",
+        "certificateId_": "DrzF7goh6UeB09CO_GbJdA2",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.2.0",
+        "appVersion_": "0.3.0",
         "appAuthor_": "Compusoft",
         "appDescription_": "Compusoft App",
         "appVersionCode_": "1"
@@ -258,7 +260,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "CG6prv7_hUSj5zrWEsA-6g2",
+        "certificateId_": "vjPAC3R8hEWjozsiEb3tGg2",
         "iosProvs_": [
           {
             "relPath": "adhoci9.mobileprovision",
@@ -271,7 +273,7 @@
         ],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.2.0",
+        "appVersion_": "0.3.0",
         "appAuthor_": "CompuSoft",
         "appDescription_": "CS i9",
         "appVersionCode_": "0.2.0"

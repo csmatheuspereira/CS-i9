@@ -1,19 +1,26 @@
 
 .badge-final{
-    margin-left: 75%;
+    margin-left: 72%;
     margin-top: -20%;
     z-index: 1;
-    width: 23% !important;
+    width: 25.8% !important;
     height: 30% !important;
     background-color: red;
-    border-radius: 100% !important;
+    border-radius: 48% !important;
     font-size: 1em !important;
-    padding-top:8% !important;
-    position: absolute;                
+    font-weight: bold;
+    position: absolute;
+    padding-top:3.8%;
+    color:#fff;
 }
 @media screen and (min-width: 720px){
     .badge-final{
-        font-size: 1.5em !important; 
+        margin-top: -18%;
+        margin-left: 76%;
+        padding-top:4.7%;
+        width: 20% !important;
+        height: 23% !important;
+        font-size: 1em !important;
     }
 }
 
