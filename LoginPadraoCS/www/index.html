@@ -104,6 +104,7 @@
         <script src="xdk/init-dev.js"></script>
         <!-- normalizes device and document ready events, see file for details -->
         <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="js/temas/functions.js"></script>
         <script type="application/javascript" src="js/index_user_scripts.js"></script>
         <script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
         <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
@@ -165,7 +166,7 @@
                             <div class="widget-container content-area vertical-col">
                                 <div class="widget uib_w_26 scale-image txtUsuarioNomeUsuario" data-uib="media/img" data-ver="0">
                                     <figure class="figure-align">
-                                        <img src="interface/Logo.png">
+                                        <img class="customLogo" src="interface/Logo.png">
 
                                         <figcaption data-position="bottom"></figcaption>
                                     </figure>
@@ -362,14 +363,16 @@
                                 <label class="checkbox checkbox-padding-left widget uib_w_50 d-margins" data-uib="twitter%20bootstrap/checkbox" data-ver="1" style="display: none;">
                                     <input type="checkbox" style="display: none;">Desconectar-se automaticamente</label>
                                 <button class="btn widget uib_w_49 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnDispositivosConfig"><i class="glyphicon glyphicon-phone button-icon-left" data-position="left"></i>Dispositivos</button>
-                                <button class="btn widget uib_w_48 d-margins btn-lg btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnSairConfig"><i class="glyphicon glyphicon-share button-icon-left" data-position="left"></i>Sair</button>
-                                <span class="uib_shim"></span>
+                                <button class="btn widget uib_w_72 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnTemasConfig"><i class="glyphicon glyphicon-tint button-icon-left" data-position="left"></i>Temas</button>
+
+                                <button class="btn widget uib_w_48 d-margins btn-lg btn-danger" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnSairConfig"><i class="glyphicon glyphicon-log-out button-icon-left" data-position="left"></i>Sair</button><span class="uib_shim"></span>
                             </div>
                         </div>
                         <span class="uib_shim"></span>
                     </div>
 
                 </div>
+
             </div>
         </div>
         <div class="upage hidden" id="cargo">
@@ -484,6 +487,53 @@
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="configTemas">
+            <div class="upage-outer">
+                <div class="uib-header header-bg container-group inner-element uib_w_73 headerStyleCustom" data-uib="layout/header" data-ver="0">
+                    <h2>Temas</h2>
+                    <div class="widget-container wrapping-col single-centered"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_74 d-margins btnVoltarStyleCustom btn-link" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnVoltarTema"><i class="glyphicon glyphicon-chevron-left" data-position="icon only"></i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col" id="page_27_44">
+                    <div class="tarea widget uib_w_78 d-margins" data-uib="media/text" data-ver="0" name="uib_w_78">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <h3><strong>Escolha um tema</strong></h3>
+                        </div>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_6 row-height-6" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_16 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area wrapping-col left">
+                                <center>
+                                <button class="btn widget uib_w_75 d-margins btnTemaCores vermelho btn-default ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="vermelho"> <i class="glyphicon glyphicon-ok hidden vermc" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <button class="btn widget uib_w_77 d-margins btnTemaCores btn-default verde ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="verde"><i class="glyphicon glyphicon-ok hidden verdc" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <button class="btn widget uib_w_79 d-margins btnTemaCores btn-default azul ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="azul"><i class="glyphicon glyphicon-ok hidden azulc" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <button class="btn widget uib_w_80 d-margins btnTemaCores btn-default laranja ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="laranja"><i class="glyphicon glyphicon-ok hidden larac" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <button class="btn widget uib_w_81 d-margins btnTemaCores btn-default roxo ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="roxo"><i class="glyphicon glyphicon-ok hidden roxoc" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <button class="btn widget uib_w_82 d-margins btnTemaCores btn-default cinza ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="cinza"><i class="glyphicon glyphicon-ok hidden cinzc" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <button class="btn widget uib_w_83 d-margins btnTemaCores btn-default escuro ripple" data-uib="twitter%20bootstrap/button" data-ver="1" id="escuro"><i class="glyphicon glyphicon-ok hidden escuc" aria-hidden="true" style="font-size:2.7em; color:#fff;"></i>
+                                </button>
+                                <span class="uib_shim"></span>
+                                    </center>
+                            </div>
+                                
+                        </div>
+                        <span class="uib_shim"></span>
                     </div>
                 </div>
             </div>

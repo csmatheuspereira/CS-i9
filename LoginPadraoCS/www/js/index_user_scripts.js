@@ -10,6 +10,7 @@
     var dispToken = "";
     
     // Funções que ocorrem ao abrir o app
+    definirTema();
     listaUsuariosLocais();
 
     if (!checaWS()) {
@@ -41,33 +42,53 @@
         idle.setAwayTimeout(1800000);
     }); // Detectar inatividade do usuário e desconectá-lo em 30 minutos               
     
-     if(device.platform == "android"){
+     
+     
+     
+     if(device.platform.toLowerCase() == "android"){
         $("#loader").removeClass("hidden");
-        var push = PushNotification.init({ "android": {"senderID": "788790867910"},
-        "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
-
-        push.on('registration', function(data) {
-            //console.log(data.registrationId);
-            //$("#gcm_id").html(data.registrationId);
-            $("#loader").addClass("hidden");
-            dispToken = data.registrationId;
-            navigator.notification.alert(dispToken);
+        var push = PushNotification.init({ 
+            "android": {
+                "senderID": "788790867910"
+            },
+            "ios": {
+                "senderID": "788790867910", 
+                "alert": "true", 
+                "badge": "true", 
+                "sound": "true",
+                "ecb":"onNotificationAPNS",
+                "gcmSandbox": "true"
+            }, 
+            "windows": {} 
         });
+     
 
-        push.on('notification', function(data) {
-            console.log(data.message);
-            alert(data.title+" Message: " +data.message);
-            // data.title,
-            // data.count,
-            // data.sound,
-            // data.image,
-            // data.additionalData
-        });
+         push.on('registration', function(data) {
+             //console.log(data.registrationId);
+             //$("#gcm_id").html(data.registrationId);
+             $("#loader").addClass("hidden");
+             dispToken = data.registrationId;
+             navigator.notification.alert(dispToken);
+         });
 
-        push.on('error', function(e) {
-            console.log(e.message);
-        });
-    }         
+         push.on('notification', function(data) {
+             console.log(data.message);
+             alert(data.title+" Message: " +data.message);
+             // data.title,
+             // data.count,
+             // data.sound,
+             // data.image,
+             // data.additionalData
+         });
+
+         push.on('error', function(e) {
+             console.log(e.message);
+         });
+
+     } // Push GCM DON'T TOUCH THIS BEACH
+     
+     
+     
      
      /* button  #btnNovo */
     $(document).on("click", "#btnNovoMainPage", function(evt)
@@ -162,18 +183,21 @@
         /* button  #btnLimparConfiguracoes */
     $(document).on("click", "#btnLimparConfiguracoes", function(evt)
     {
-        localStorage.setItem("login", "");
-        localStorage.setItem("senha", "");
-        localStorage.setItem("idUsuario", "");
-        localStorage.setItem("urlWS", "");
-        
+//        localStorage.setItem("login", "");
+//        localStorage.setItem("senha", "");
+//        localStorage.setItem("idUsuario", "");
+//        localStorage.setItem("urlWS", "");
+//        
+//        alert("Apagado!");
+//        
+//        //localStorage.setItem("indexUsr", 0);                
+//        
+//        dati.emptyTable("tblUsers",function(status){
+//            listaUsuariosLocais();
+//        }); 
+        localStorage.removeItem("temaAtual");
+        localStorage.removeItem("temaAnterior");
         alert("Apagado!");
-        
-        //localStorage.setItem("indexUsr", 0);                
-        
-        dati.emptyTable("tblUsers",function(status){
-            listaUsuariosLocais();
-        }); 
     });    
     
     
@@ -299,6 +323,20 @@
     $(document).on("click", "#btnVoltarVaga", function(evt)
     {
         activate_page("#vagas");
+    });
+    
+        /* button  #btnTemasConfig */
+    $(document).on("click", "#btnTemasConfig", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#configTemas"); 
+    });
+    
+        /* button  #btnVoltarTema */
+    $(document).on("click", "#btnVoltarTema", function(evt)
+    {
+         /*global activate_page */
+         activate_page("#configGlobal"); 
     });
     
     }       
