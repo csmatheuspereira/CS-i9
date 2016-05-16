@@ -42,6 +42,11 @@ function login(json){
             flagSenha = "S";
         }
         
+        localStorage.setItem('cliente', json.cliente);
+        
+        badge(json.qtde, ".badVagas", localStorage.getItem("cliqueVaga"));
+        selecionaLogo(localStorage.setItem('cliente'));
+        
         activate_page("#activitymain");
         
     } else {

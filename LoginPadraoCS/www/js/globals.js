@@ -146,6 +146,16 @@ function geraData(separador,posicao){
     
 }
 
+function selecionaLogo(cliente){
+    
+    if(cliente == "ARALCO"){
+        $('.customLogo').attr('src', 'interface/Logo/aralco.png')
+    }else{
+        $('.customLogo').attr('src', 'interface/Logo/csVerde.png')
+    }
+    
+}
+
 (function (window, $) {
 
 $(function() {

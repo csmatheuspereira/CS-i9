@@ -5,14 +5,14 @@ function definirTema(){
         $(".header-bg").addClass(localStorage.getItem("temaAtual"));
         $(".btn-primary").addClass(localStorage.getItem("temaAtual"));
         $("."+selecionaCheck(localStorage.getItem("temaAtual"))).removeClass("hidden");
-        selecionaLogo(localStorage.getItem("temaAtual"));
+        selecionaFundos(localStorage.getItem("temaAtual"));
     }else{
         $(".header-bg").addClass(localStorage.getItem("temaAtual"));
 
         $(".btn-primary").addClass(localStorage.getItem("temaAtual"));
         
         $("."+selecionaCheck(localStorage.getItem("temaAtual"))).removeClass("hidden");
-        selecionaLogo(localStorage.getItem("temaAtual"));
+        selecionaFundos(localStorage.getItem("temaAtual"));
     }
     
     
@@ -41,7 +41,7 @@ $(document).on("click", ".btnTemaCores", function(evt)
 
                 localStorage.setItem("temaAtual", this.id);
                 localStorage.setItem("temaAnterior", this.id);
-                selecionaLogo(localStorage.getItem("temaAtual"));
+                selecionaFundos(localStorage.getItem("temaAtual"));
             }
         }
     });
@@ -66,36 +66,29 @@ function selecionaCheck(id){
     
 }
 
-function selecionaLogo(id){
+function selecionaFundos(id){
     
     if(id == "vermelho"){
         $('h3').css('color', 'rgb(0, 0, 0)');
         document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        $('.customLogo').attr('src', 'interface/Logo/csVermelho.png');
     }else if(id == "verde"){
         $('h3').css('color', 'rgb(0, 0, 0)');
         document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        $('.customLogo').attr('src', 'interface/Logo/csVerde.png');
     }else if(id == "azul"){
         $('h3').css('color', 'rgb(0, 0, 0)');
         document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        $('.customLogo').attr('src', 'interface/Logo/csAzul.png');
     }else if(id == "laranja"){
         $('h3').css('color', 'rgb(0, 0, 0)');
         document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        $('.customLogo').attr('src', 'interface/Logo/csLaranja.png');
     }else if(id == "roxo"){
         $('h3').css('color', 'rgb(0, 0, 0)');
         document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        $('.customLogo').attr('src', 'interface/Logo/csRoxo.png');
     }else if(id == "cinza"){
         $('h3').css('color', 'rgb(0, 0, 0)');
         document.body.style.backgroundColor = "rgb(255, 255, 255)";
-        $('.customLogo').attr('src', 'interface/Logo/csCinza.png');
     }else if(id == "escuro"){
         $('h3').css('color', 'rgb(255, 255, 255)');
         document.body.style.backgroundColor = "rgb(51, 51, 51)";
-        $('.customLogo').attr('src', 'interface/Logo/csMidnight.png');
     };
     
 }

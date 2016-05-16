@@ -68,7 +68,7 @@
              //$("#gcm_id").html(data.registrationId);
              $("#loader").addClass("hidden");
              dispToken = data.registrationId;
-             navigator.notification.alert(dispToken);
+            // navigator.notification.alert(dispToken);
          });
 
          push.on('notification', function(data) {
