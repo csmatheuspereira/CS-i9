@@ -183,21 +183,27 @@
         /* button  #btnLimparConfiguracoes */
     $(document).on("click", "#btnLimparConfiguracoes", function(evt)
     {
-//        localStorage.setItem("login", "");
-//        localStorage.setItem("senha", "");
-//        localStorage.setItem("idUsuario", "");
-//        localStorage.setItem("urlWS", "");
-//        
-//        alert("Apagado!");
-//        
-//        //localStorage.setItem("indexUsr", 0);                
-//        
-//        dati.emptyTable("tblUsers",function(status){
-//            listaUsuariosLocais();
-//        }); 
-        localStorage.removeItem("temaAtual");
-        localStorage.removeItem("temaAnterior");
-        alert("Apagado!");
+        
+        
+        
+        navigator.notification.confirm("Você realmente deseja apagar todas informações deste dispositivo?", function(buttonID){
+            
+            if(buttonID == 1){
+                localStorage.setItem("login", "");
+                localStorage.setItem("senha", "");
+                localStorage.setItem("idUsuario", "");
+                localStorage.setItem("urlWS", "");
+
+                //localStorage.setItem("indexUsr", 0);                
+
+                dati.emptyTable("tblUsers",function(status){
+                    listaUsuariosLocais();
+                }); 
+                localStorage.removeItem("temaAtual");
+                localStorage.removeItem("temaAnterior");
+                navigator.notification.alert("Dados apagados com sucesso!", null, "Sucesso");
+            }            
+        }, "Confirmação", ["Sim!", "Não!"]);
     });    
     
     
@@ -337,6 +343,10 @@
     {
          /*global activate_page */
          activate_page("#configGlobal"); 
+    });
+     
+    $(document).on("click", "#btnTentarNovamente", function(evt){
+        verificaConexao();
     });
     
     }       

@@ -48,14 +48,14 @@ function loginMainPage(json){
         localStorage.setItem('cliente', json.cliente);
         
         badge(json.qtde, ".badVagas", localStorage.getItem("cliqueVaga"));
-        selecionaLogo(localStorage.setItem('cliente'));
+        selecionaLogo(localStorage.getItem('cliente'));
         
         activate_page("#activitymain");        
     } else {
-        if(json.msg != ""){
-            navigator.notification.alert(json.msg);
-        }else{
+        if(json.msg == null){
             navigator.notification.alert("Usuário ou senha incorreto(s) ou usuário não cadastrado no aplicativo.");
+        }else{
+            navigator.notification.alert(json.msg);
         }
     }
     

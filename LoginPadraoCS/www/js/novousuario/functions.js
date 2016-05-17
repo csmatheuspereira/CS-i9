@@ -1,7 +1,22 @@
 function login(json){
     
     if (json.result==true) {
-                           
+                               
+        dati.query("SELECT count(NOME) QTDE FROM tblUsers WHERE NOME='" + $("#txtNomeNovoUsuario").val() + "'", function(registros){
+            conta=registros.rows.item(0).QTDE;
+            
+            if (conta <= 0) {
+                // Usuário não existe. Cadastra no BD local
+                var registro = { "NOME": $("#txtNomeNovoUsuario").val() }
+
+                dati.insert("tblUsers", registro, function(ID){
+                    //navigator.notification.alert("Cadastrado");
+                });
+            }
+        });
+        
+            
+        /*
         // Pega os textos do comboBox e coloca na array cmbUsuario
         var cmbUsuario = $("#cmbUsuarioMainPage option").map(function() {
                  return $(this).text();
@@ -14,25 +29,29 @@ function login(json){
         }else{
             var final = 0;
         }
-        
+            
         
         // Verifica se já existe o usuário no combo
         for (var i = 0; i <= final; i++){
             if (cmbUsuario[i] == $("#txtNomeNovoUsuario").val())
-                {
+                {                                                            
                     break;
                     // Aqui o usuário já existe. Sai do for e chama a próxima tela
                 } else {
                     // Usuário não existe. Cadastra no BD local
                     var registro = { "NOME": $("#txtNomeNovoUsuario").val() }
-
+                    
                     dati.insert("tblUsers", registro, function(ID){
                         //navigator.notification.alert("Cadastrado");
                     });
                     
                     break;
                 }
-        }                            
+        }
+        
+        */ //Antiga função de registrar usuário inexistente
+        
+        
         $("#txtSenhaNovoUsuario").val("");
         
         localStorage.setItem("idUsuario", json.ID);
@@ -45,7 +64,7 @@ function login(json){
         localStorage.setItem('cliente', json.cliente);
         
         badge(json.qtde, ".badVagas", localStorage.getItem("cliqueVaga"));
-        selecionaLogo(localStorage.setItem('cliente'));
+        selecionaLogo(localStorage.getItem('cliente'));
         
         activate_page("#activitymain");
         

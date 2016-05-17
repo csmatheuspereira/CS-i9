@@ -21,6 +21,7 @@ function checaWS(){
 }
 
 function webService(values, status, callback){
+    if(verificaConexao(urlWS) && checkOnline(urlWS)){
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -40,6 +41,7 @@ function webService(values, status, callback){
             $("#loader").addClass("hidden");
             alert( "Request failed: " + textStatus );
         });
+    }
 }
 
 function checaCampo(values) {
@@ -151,7 +153,7 @@ function selecionaLogo(cliente){
     if(cliente == "ARALCO"){
         $('.customLogo').attr('src', 'interface/Logo/aralco.png')
     }else{
-        $('.customLogo').attr('src', 'interface/Logo/csVerde.png')
+        $('.customLogo').attr('src', 'interface/Logo.png')
     }
     
 }
@@ -191,3 +193,31 @@ $(function() {
 });
 
 })(window, jQuery);
+
+function verificaConexao(url){
+    if(intel.xdk.device.connection == "none")
+    {
+       $('#internet').removeClass('hidden');
+        return false;
+    }else{
+        $('#internet').addClass('hidden');
+        return true;
+    }
+};
+
+function checkOnline(url){
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    var resultado = http.status!=404;
+    
+    if(resultado){
+        return true;
+    }else{
+        navigator.notification.alert("O endereço está fora do ar ou URL de acesso digitado incorretamente.", null,"Erro");
+        document.getElementById("txtURLConfiguracoes").value = localStorage.getItem("urlWS");
+        activate_page("#configuracoes");
+        return false;
+    }
+    
+}
