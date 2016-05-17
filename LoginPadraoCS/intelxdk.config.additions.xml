@@ -19,8 +19,13 @@
     <!-- docs: https://github.com/apache/cordova-plugin-statusbar -->
     <!-- see http://devgirl.org/2014/07/31/phonegap-developers-guid -->
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarBackgroundColor" value="rgb(231, 76, 60)" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    
+    <!-- +iOS --><preference name="DisallowOverscroll" value="true" />
+    <!-- +iOS --><preference name="UIWebViewBounce" value="false" />
+    <!-- +iOS --><preference name="webviewbounce" value="false"/>
+    
 </platform>
 
 <platform name="android">
