@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "lastModifiedDate": 1463082316257,
+      "lastModifiedDate": 1463510470509,
       "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
@@ -100,15 +100,15 @@
         "id": "phonegap-plugin-push",
         "name": "PushPlugin",
         "version": "1.6.3",
-        "originType": "repo",
-        "origin": "https://github.com/phonegap/phonegap-plugin-push",
+        "originType": "local",
+        "origin": "/C/Users/csu248/Desktop/phonegap-plugin-push-master",
         "gitref": "",
         "paramvals": {
           "SENDER_ID": "788790867910"
         },
         "sourceLocation": "plugins/phonegap-plugin-push",
         "selectedState": "Included",
-        "checksum": "724aca3e",
+        "checksum": "86434d14",
         "dependsOn": [],
         "topLevel": true,
         "cordovaVersion": ">=3.6.3",
@@ -122,10 +122,9 @@
             "${applicationId}.permission.C2D_MESSAGE"
           ]
         },
-        "description": "\r\n\t\tThis plugin allows your application to receive push notifications on Android, iOS and Windows devices.\r\n    Android uses Google Cloud Messaging.\r\n    iOS uses Apple APNS Notifications.\r\n    Windows uses Microsoft WNS Notifications.\r\n\t",
+        "description": "\n\t\tThis plugin allows your application to receive push notifications on Android, iOS and Windows devices.\n    Android uses Google Cloud Messaging.\n    iOS uses Apple APNS Notifications.\n    Windows uses Microsoft WNS Notifications.\n\t",
         "data": {},
-        "dependedBy": [],
-        "subdir": "."
+        "dependedBy": []
       }
     ],
     "buildConfigurations": {
@@ -141,7 +140,7 @@
           "Orientation": "portrait"
         },
         "isActive_": true,
-        "appName_": "CS Login",
+        "appName_": "CS",
         "appID_": "com.compusoft.loginUI",
         "appAccess_": {
           "mode": "legacy",
@@ -217,13 +216,13 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "DrzF7goh6UeB09CO_GbJdA2",
-        "cordovaCLIVersion_": "5.1.1",
+        "certificateId_": "B6yFPyCMJUazEuEnCtNThw2",
+        "cordovaCLIVersion_": "5.4.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.3.0",
-        "appAuthor_": "Compusoft",
-        "appDescription_": "Compusoft App",
-        "appVersionCode_": "1"
+        "appVersion_": "0.3.2",
+        "appAuthor_": "Compusoftware",
+        "appDescription_": "Informações para Gestores e Colaboradores integradas aos ERPs da Compusoftware",
+        "appVersionCode_": "32"
       },
       "iOS": {
         "platform_": "ios",
@@ -231,12 +230,12 @@
         "name_": "iOS",
         "preferences_": {
           "ios-configuration": "adhoc",
-          "deployment-target": "7.0",
+          "deployment-target": "8.0",
           "Orientation": "portrait",
           "Fullscreen": false
         },
         "isActive_": true,
-        "appName_": "CS i9",
+        "appName_": "CS",
         "appID_": "com.compusoft.loginUI",
         "appAccess_": {
           "mode": "whitelist",
@@ -260,7 +259,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "vjPAC3R8hEWjozsiEb3tGg2",
+        "certificateId_": "mHhxQduaiEu2E8IMhbQzXg2",
         "iosProvs_": [
           {
             "relPath": "adhoci9.mobileprovision",
@@ -271,12 +270,12 @@
             "type": "production"
           }
         ],
-        "cordovaCLIVersion_": "5.1.1",
+        "cordovaCLIVersion_": "5.4.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.3.0",
-        "appAuthor_": "CompuSoft",
-        "appDescription_": "CS i9",
-        "appVersionCode_": "0.2.0"
+        "appVersion_": "0.3.2",
+        "appAuthor_": "Compusoftware",
+        "appDescription_": "Informações para Gestores e Colaboradores integradas aos ERPs da Compusoftware",
+        "appVersionCode_": "0.3.2"
       },
       "Windows8": {
         "platform_": "windows8",
@@ -303,7 +302,7 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
-        "cordovaCLIVersion_": "5.1.1",
+        "cordovaCLIVersion_": "5.4.1",
         "crosswalkVersion_": "16",
         "appVersion_": "0.0.0.1",
         "appAuthor_": "CompuSoft",
@@ -427,7 +426,7 @@
         "excludedLibraries_": "",
         "certificateId_": "",
         "appVersion_": "0.0.0.1",
-        "cordovaCLIVersion_": "5.1.1",
+        "cordovaCLIVersion_": "5.4.1",
         "appAuthor_": "Intel XDK"
       }
     },
