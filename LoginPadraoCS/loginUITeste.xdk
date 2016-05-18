@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "lastModifiedDate": 1463510722713,
+      "lastModifiedDate": 1463592802707,
       "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
@@ -29,7 +29,7 @@
       {
         "id": "cordova-plugin-statusbar",
         "name": "StatusBar",
-        "version": "2.1.0",
+        "version": "2.0.0",
         "originType": "cordova.io",
         "origin": "cordova-plugin-statusbar",
         "gitref": "",
@@ -42,11 +42,11 @@
         "description": "Cordova StatusBar Plugin",
         "data": {},
         "dependedBy": [],
-        "checksum": "858cc583"
+        "checksum": "b92cbbef"
       },
       {
         "id": "cordova-plugin-device",
-        "version": "1.1.1",
+        "version": "1.1.0",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -59,11 +59,11 @@
         "gitref": "",
         "name": "Device",
         "description": "Cordova Device Plugin",
-        "checksum": "927290ca"
+        "checksum": "1eae5d64"
       },
       {
         "id": "cordova-plugin-splashscreen",
-        "version": "3.2.0",
+        "version": "2.1.0",
         "selectedState": "Included",
         "data": {},
         "paramvals": {},
@@ -76,7 +76,7 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "452a4659"
+        "checksum": "a7fdb6d9"
       },
       {
         "id": "cordova-plugin-dialogs",
@@ -101,7 +101,7 @@
         "name": "PushPlugin",
         "version": "1.6.3",
         "originType": "local",
-        "origin": "/C/Users/csu248/Desktop/phonegap-plugin-push-master",
+        "origin": "/C/Users/csu243/Documents/GitHub/CS-i9/phonegap-plugin-push-master",
         "gitref": "",
         "paramvals": {
           "SENDER_ID": "788790867910"
@@ -216,8 +216,8 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "B6yFPyCMJUazEuEnCtNThw2",
-        "cordovaCLIVersion_": "5.4.1",
+        "certificateId_": "",
+        "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
         "appVersion_": "0.3.2",
         "appAuthor_": "Compusoftware",
@@ -255,11 +255,135 @@
           "navigation": [],
           "properties": {}
         },
-        "icons_": [],
-        "splashes_": [],
+        "icons_": [
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-Small.png",
+            "height": 29,
+            "width": 29
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-Small@2x.png",
+            "height": 58,
+            "width": 58
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-Small@3x.png",
+            "height": 87,
+            "width": 87
+          },
+          {
+            "relPath": "res/iOS/Icon-60.png",
+            "height": 60,
+            "width": 60
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-60@2x.png",
+            "height": 120,
+            "width": 120
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-60@3x.png",
+            "height": 180,
+            "width": 180
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-76.png",
+            "height": 76,
+            "width": 76
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-76@2x.png",
+            "height": 152,
+            "width": 152
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-40.png",
+            "height": 40,
+            "width": 40
+          },
+          {
+            "relPath": "res/iOS/AppIcon.appiconset/Icon-40@2x.png",
+            "height": 80,
+            "width": 80
+          },
+          {
+            "relPath": "res/iOS/Icon.png",
+            "height": 57,
+            "width": 57
+          },
+          {
+            "relPath": "res/iOS/Icon@2x.png",
+            "height": 114,
+            "width": 114
+          },
+          {
+            "relPath": "res/iOS/Icon-72.png",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "res/iOS/Icon-72@2x.png",
+            "height": 144,
+            "width": 144
+          },
+          {
+            "relPath": "res/iOS/Icon-Small-50.png",
+            "height": 50,
+            "width": 50
+          },
+          {
+            "relPath": "res/iOS/Icon-Small-50@2x.png",
+            "height": 100,
+            "width": 100
+          }
+        ],
+        "splashes_": [
+          {
+            "relPath": "res/iOS/750-1334.png",
+            "height": 1334,
+            "width": 750,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "res/iOS/1242-2208.png",
+            "height": 2208,
+            "width": 1242,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "res/iOS/640-1136.png",
+            "height": 1136,
+            "width": 640,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "res/iOS/640-960.png",
+            "height": 960,
+            "width": 640,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "res/iOS/320-480.png",
+            "height": 480,
+            "width": 320,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "res/iOS/1536-2048.png",
+            "height": 2048,
+            "width": 1536,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "res/iOS/768-1024.png",
+            "height": 1024,
+            "width": 768,
+            "orientation": "portrait"
+          }
+        ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "mHhxQduaiEu2E8IMhbQzXg2",
+        "certificateId_": "vjPAC3R8hEWjozsiEb3tGg2",
         "iosProvs_": [
           {
             "relPath": "adhoci9.mobileprovision",
@@ -270,7 +394,7 @@
             "type": "production"
           }
         ],
-        "cordovaCLIVersion_": "5.4.1",
+        "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
         "appVersion_": "0.3.2",
         "appAuthor_": "Compusoftware",
@@ -302,7 +426,7 @@
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "certificateId_": "",
-        "cordovaCLIVersion_": "5.4.1",
+        "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
         "appVersion_": "0.0.0.1",
         "appAuthor_": "CompuSoft",
@@ -426,7 +550,7 @@
         "excludedLibraries_": "",
         "certificateId_": "",
         "appVersion_": "0.0.0.1",
-        "cordovaCLIVersion_": "5.4.1",
+        "cordovaCLIVersion_": "5.1.1",
         "appAuthor_": "Intel XDK"
       }
     },
