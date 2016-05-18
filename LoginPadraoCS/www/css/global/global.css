@@ -93,6 +93,37 @@
 
 /*  Fim CSS Tela Vagas*/
 
+
+/*  Tela de progressão  */
+
+ 
+.listv-prog{
+    margin-top: -15px !important;
+    width: 110% !important;
+    margin-left: -15px !important;
+}
+@media screen and (min-width: 600px){
+    .listv-prog{
+        width: 104% !important;
+    }
+}
+
+.accordion-toggle{
+    width: 100%;
+    color: aliceblue;
+}
+.accordion-toggle:hover{
+    width: 100%;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+
+/*  fim tela progressão  */
+
+
+
+
 .ripple{
     overflow:hidden;
 }

@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "lastModifiedDate": 1463592802707,
+      "lastModifiedDate": 1463599536065,
       "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
@@ -216,7 +216,7 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "",
+        "certificateId_": "z4tJ9TaxnEGHDpJLii-ogA2",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
         "appVersion_": "0.3.2",
@@ -383,7 +383,7 @@
         ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "certificateId_": "vjPAC3R8hEWjozsiEb3tGg2",
+        "certificateId_": "CG6prv7_hUSj5zrWEsA-6g2",
         "iosProvs_": [
           {
             "relPath": "adhoci9.mobileprovision",

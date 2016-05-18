@@ -135,6 +135,7 @@
         <script type="application/javascript" src="sidebar/js/swipe-hammer.js"></script>
         <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
         <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
     </head>
 
     <body>
@@ -145,16 +146,18 @@
         <div id="loader" class="hidden" style="width:100%;height:100%;background-color:rgba(0,0,0,.8);z-index:995;position:absolute;">
             <div class="loader" style="z-index:999;position:absolute;top:45%;left:0;right:0;margin-left:auto;margin-right:auto;"></div>
         </div>
-        
+
         <div align="center" id="internet" class="hidden" style="width:100%;height:100%;background-color:rgba(0,0,0,.8);z-index:995;position:absolute;color:#fff;">
             <center>
                 <img src="interface/conexao.png" width="150" height="150" style="margin-top:55px;">
-                <br /><br />
-                <p>Problemas na sua conexão com a internet.<br />Verifique e tente novamente.</p>
+                <br>
+                <br>
+                <p>Problemas na sua conexão com a internet.
+                    <br>Verifique e tente novamente.</p>
                 <button class="btn widget uib_w_3 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnTentarNovamente"><i class="glyphicon glyphicon-repeat button-icon-left" data-position="left"></i> Tente novamente</button>
             </center>
         </div>
-        
+
         <div class="upage mainpageStyleBG" id="mainpage">
             <div class="upage-outer">
                 <div class="uib-header container-group inner-element uib_w_11" data-uib="layout/header" data-ver="0">
@@ -294,7 +297,15 @@
 
                                 <div class="table-thing widget uib_w_28 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
                                     <label class="narrow-control" for="txtURLConfiguracoes"></label>
-                                    <input class="wide-control form-control default input-lg" type="text" placeholder="http://" id="txtURLConfiguracoes">
+                                    <input class="wide-control form-control default input-lg" type="text" placeholder="http://" id="txtURLConfiguracoes" list="urls">
+                                    <datalist id="urls">
+                                        <option value="http://ns1.compusoft-info.com.br:8989/ws/index.php">
+                                            Servidor Compusoft
+                                        </option>
+                                        <option value="http://192.168.1.6/ws/index.php">
+                                            Servidor Aralco
+                                        </option>
+                                    </datalist>
                                 </div>
 
                                 <button class="btn widget uib_w_30 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnSalvarConfiguracoes"><i class="glyphicon glyphicon-ok button-icon-left" data-position="left"></i>Salvar</button>
@@ -344,6 +355,7 @@
                                     <img src="interface/UI/vagas/vagas.png">
                                     <span class="uib-caption">Vagas</span>
                                 </a>
+
                                 <span class="uib_shim"></span>
                             </div>
                         </div>
@@ -543,6 +555,84 @@
 
                         </div>
                         <span class="uib_shim"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upage hidden" id="progressao">
+            <div class="upage-outer">
+                <div class="uib-header header-bg container-group inner-element uib_w_84 headerStyleCustom" data-uib="layout/header" data-ver="0">
+                    <h2>Progressão</h2>
+                    <div class="widget-container wrapping-col single-centered"></div>
+                    <div class="widget-container content-area horiz-area wrapping-col left">
+                        <button class="btn widget uib_w_85 d-margins btn-link btnVoltarStyleCustom" data-uib="twitter%20bootstrap/button" data-ver="1" id="btnVoltarProgressao"><i class="glyphicon glyphicon-chevron-left button-icon-left" data-position="left"></i>
+                        </button>
+                    </div>
+                    <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                </div>
+                <div class="upage-content ac0 content-area vertical-col left" id="page_44_67">
+                    <div class="tarea widget uib_w_86 d-margins" data-uib="media/text" data-ver="0" name="uib_w_86" id="lblCargoAtual">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <h3>Cargo Atual</h3>
+                        </div>
+                    </div>
+                    <div class="panel widget uib_w_87 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="clpRequisitoAtual">
+                        <div class="panel-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-0" data-parent="#null">                                           Requisitos                                       </a>
+                        </div>
+                        <div id="bs-accordion-group-0" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col uib_col_17 single-col" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <div class="list-group widget uib_w_91 d-margins listv-prog" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="lvRequisitoAtual">
+                                            <a class="list-group-item allow-badge widget uib_w_92" data-uib="twitter%20bootstrap/list_item" data-ver="1" id="lvItemReqAtual">
+
+                                                <p class="list-group-item-text">List item</p>
+                                            </a>
+
+                                        </div>
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress full-width-widget widget uib_w_88 d-margins active progress-striped" data-uib="twitter%20bootstrap/progress_bar" data-ver="1" id="ob">
+                        <div class="progress-bar progress-bar-success progress-bar-info" style="width: 60%;"></div>
+                    </div>
+                    <div class="tarea widget uib_w_89 d-margins" data-uib="media/text" data-ver="0" name="uib_w_89" id="lblCargoSuperior">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div class="text-container">
+                            <h3>Cargo Superior</h3>
+                        </div>
+                    </div>
+                    <div class="panel widget uib_w_90 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1" id="clpRequistoSuperior">
+                        <div class="panel-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-1" data-parent="#null">
+                                <h4 class="panel-title">
+               Requisitos
+       </h4>
+                            </a>
+                        </div>
+                        <div id="bs-accordion-group-1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="col uib_col_18 single-col" data-uib="layout/col" data-ver="0">
+                                    <div class="widget-container content-area vertical-col">
+                                        <div class="list-group widget uib_w_95 d-margins listv-prog" data-uib="twitter%20bootstrap/list_group" data-ver="1" id="lvRequisitoSuperior">
+                                            <a class="list-group-item allow-badge widget uib_w_96" data-uib="twitter%20bootstrap/list_item" data-ver="1" id="lvItemReqSuperior">
+
+                                                <p class="list-group-item-text">List item</p>
+                                            </a>
+
+                                        </div>
+                                        <span class="uib_shim"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
