@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "23237e29-44bd-49d8-85ea-d597f2f6b29f",
-      "lastModifiedDate": 1463599536065,
+      "lastModifiedDate": 1463600328087,
       "creationDate": 1460057646367
     },
     "XDK-app-designer": "true",
@@ -26,24 +26,6 @@
     "serviceMethods": [],
     "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [
-      {
-        "id": "cordova-plugin-statusbar",
-        "name": "StatusBar",
-        "version": "2.0.0",
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-statusbar",
-        "gitref": "",
-        "paramvals": {},
-        "selectedState": "Included",
-        "dependsOn": [],
-        "topLevel": true,
-        "cordovaVersion": ">=3.0.0",
-        "permissions": {},
-        "description": "Cordova StatusBar Plugin",
-        "data": {},
-        "dependedBy": [],
-        "checksum": "b92cbbef"
-      },
       {
         "id": "cordova-plugin-device",
         "version": "1.1.0",
@@ -97,21 +79,39 @@
         "dependedBy": []
       },
       {
-        "id": "phonegap-plugin-push",
-        "name": "PushPlugin",
-        "version": "1.6.3",
-        "originType": "local",
-        "origin": "/C/Users/csu243/Documents/GitHub/CS-i9/phonegap-plugin-push-master",
+        "id": "cordova-plugin-statusbar",
+        "name": "StatusBar",
+        "version": "2.0.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-statusbar",
         "gitref": "",
-        "paramvals": {
-          "SENDER_ID": "788790867910"
-        },
-        "sourceLocation": "plugins/phonegap-plugin-push",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-statusbar",
         "selectedState": "Included",
-        "checksum": "86434d14",
+        "checksum": "b92cbbef",
         "dependsOn": [],
         "topLevel": true,
-        "cordovaVersion": ">=3.6.3",
+        "cordovaVersion": ">=3.0.0",
+        "permissions": {},
+        "description": "Cordova StatusBar Plugin",
+        "data": {},
+        "dependedBy": []
+      },
+      {
+        "id": "phonegap-plugin-push",
+        "name": "PushPlugin",
+        "version": "1.4.3",
+        "originType": "cordova.io",
+        "origin": "phonegap-plugin-push",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/phonegap-plugin-push",
+        "selectedState": "Included",
+        "checksum": "b8b2263e",
+        "dependsOn": [],
+        "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "author": "Bob Easterday",
         "permissions": {
           "android:name": [
             "android.permission.INTERNET",
@@ -119,10 +119,10 @@
             "android.permission.WAKE_LOCK",
             "android.permission.VIBRATE",
             "com.google.android.c2dm.permission.RECEIVE",
-            "${applicationId}.permission.C2D_MESSAGE"
+            "$PACKAGE_NAME.permission.C2D_MESSAGE"
           ]
         },
-        "description": "\n\t\tThis plugin allows your application to receive push notifications on Android, iOS and Windows devices.\n    Android uses Google Cloud Messaging.\n    iOS uses Apple APNS Notifications.\n    Windows uses Microsoft WNS Notifications.\n\t",
+        "description": "\n\t\tThis plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.\n    Android uses Google Cloud Messaging.\n    iOS uses Apple APNS Notifications.\n    WP8 uses Microsoft MPNS Notifications.\n    Windows8 uses Microsoft WNS Notifications.\n\t",
         "data": {},
         "dependedBy": []
       }
@@ -219,10 +219,10 @@
         "certificateId_": "z4tJ9TaxnEGHDpJLii-ogA2",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.3.2",
+        "appVersion_": "0.3.3",
         "appAuthor_": "Compusoftware",
         "appDescription_": "Informações para Gestores e Colaboradores integradas aos ERPs da Compusoftware",
-        "appVersionCode_": "32"
+        "appVersionCode_": "33"
       },
       "iOS": {
         "platform_": "ios",
@@ -396,10 +396,10 @@
         ],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "16",
-        "appVersion_": "0.3.2",
+        "appVersion_": "0.3.3",
         "appAuthor_": "Compusoftware",
         "appDescription_": "Informações para Gestores e Colaboradores integradas aos ERPs da Compusoftware",
-        "appVersionCode_": "0.3.2"
+        "appVersionCode_": "0.3.3"
       },
       "Windows8": {
         "platform_": "windows8",
